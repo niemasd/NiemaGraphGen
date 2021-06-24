@@ -1,0 +1,39 @@
+# use g++ compiler
+CXX=g++
+CXXFLAGS?=-Wall -pedantic -std=c++11
+
+# # flag specifications for release and debug
+RELEASEFLAGS?=$(CXXFLAGS) -O3
+DEBUGFLAGS?=$(CXXFLAGS) -O0 -g #-pg
+
+# relevant constants
+CPP_FILES=main.cpp common.cpp
+HEADER_FILES=common.h
+GLOBAL_DEPS=$(CPP_FILES) $(HEADER_FILES)
+EXE_PREFIX=ngg
+
+# complete graph
+COMPLETE=complete
+COMPLETE_EXE=$(EXE_PREFIX)_$(COMPLETE)
+COMPLETE_DEBUG=$(COMPLETE)_debug
+COMPLETE_DEBUG_EXE=$(EXE_PREFIX)_$(COMPLETE_DEBUG)
+COMPLETE_CPP=complete.cpp
+COMPLETE_H=complete.h
+COMPLETE_FILES=$(COMPLETE_CPP) $(COMPLETE_H)
+
+# compile all executables
+RELEASE_EXES=$(COMPLETE_EXE)
+DEBUG_EXES=$(COMPLETE_DEBUG_EXE)
+all: $(RELEASE_EXES)
+debug: $(DEBUG_EXES)
+
+# complete graph
+COMPLETE_FLAG=-DCOMPLETE
+$(COMPLETE_EXE): $(GLOBAL_DEPS) $(COMPLETE_FILES)
+	$(CXX) $(RELEASEFLAGS) $(COMPLETE_FLAG) -o $(COMPLETE_EXE) $(CPP_FILES) $(COMPLETE_CPP)
+$(COMPLETE_DEBUG_EXE): $(GLOBAL_DEPS) $(COMPLETE_FILES)
+	$(CXX) $(DEBUGFLAGS) $(COMPLETE_FLAG) -o $(COMPLETE_DEBUG_EXE) $(CPP_FILES) $(COMPLETE_CPP)
+
+# clean things up
+clean:
+	$(RM) $(RELEASE_EXES) $(DEBUG_EXES) *.o

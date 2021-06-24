@@ -1,3 +1,7 @@
+# NiemaGraphGen executables
+ngg_complete
+ngg_complete_debug
+
 # Prerequisites
 *.d
 
