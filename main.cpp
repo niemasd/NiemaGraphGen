@@ -1,4 +1,5 @@
-#include <string>
+#include <iostream>
+#include <string.h>
 #include "common.h"
 using namespace std;
 
@@ -35,4 +36,12 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 
 // main driver
 int main(int argc, char** argv) {
+    // check usage
+    if(argc != NUM_USER_ARGS || strcmp(argv[1],"-h") == 0 || strcmp(argv[1],"--help") == 0) {
+        cerr << OPEN_MESSAGE << endl << "USAGE: " << argv[0] << " <num_nodes>"
+        #if defined COMPLETE // complete graph
+            // no parameters needed
+        #endif
+        << endl; exit(1);
+    }
 }
