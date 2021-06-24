@@ -28,7 +28,7 @@ BA_DEBUG=$(BA)_debug
 BA_DEBUG_EXE=$(EXE_PREFIX)_$(BA_DEBUG)
 BA_CPP=barabasi_albert.cpp
 BA_H=barabasi_albert.h
-BA_FILS=$(BA_CPP) $(BA_H)
+BA_FILES=$(BA_CPP) $(BA_H)
 
 # compile all executables
 RELEASE_EXES=$(COMPLETE_EXE) $(BA_EXE)
