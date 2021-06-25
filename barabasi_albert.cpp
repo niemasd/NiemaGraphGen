@@ -1,6 +1,6 @@
 #include <iostream>
 #include "common.h"
-#include "complete.h"
+#include "barabasi_albert.h"
 using namespace std;
 
 void generate_ba_graph(unsigned long long const & N, unsigned long long const & M) {
