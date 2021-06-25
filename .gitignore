@@ -3,6 +3,8 @@ ngg_ba
 ngg_ba_debug
 ngg_complete
 ngg_complete_debug
+ngg_empty
+ngg_empty_debug
 
 # Prerequisites
 *.d

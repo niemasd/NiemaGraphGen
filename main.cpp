@@ -15,9 +15,11 @@ using namespace std;
 #endif
 
 // import generator
-#if defined COMPLETE // complete graph
+#if defined EMPTY      // empty graph
+// no imports needed
+#elif defined COMPLETE // complete graph
 #include "complete.h"
-#elif defined BA     // Barabasi-Albert graph
+#elif defined BA       // Barabasi-Albert graph
 #include "barabasi_albert.h"
 #endif
 
@@ -29,9 +31,11 @@ using namespace std;
 // opening message
 #ifndef OPEN_MESSAGE
 const string OPEN_MESSAGE = DESCRIPTION + string(
-#if defined COMPLETE // complete graph
+#if defined EMPTY      // empty graph
+" (Empty Graph)"
+#elif defined COMPLETE // complete graph
 " (Complete Graph)"
-#elif defined BA     // Barabasi-Albert graph
+#elif defined BA       // Barabasi-Albert graph
 " (Barabasi-Albert)"
 #endif
 );
@@ -39,9 +43,11 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 
 // number of user args
 #ifndef NUM_USER_ARGS
-#if defined COMPLETE // complete graph
+#if defined EMPTY      // empty graph
 #define NUM_USER_ARGS 2
-#elif defined BA     // Barabasi-Albert graph
+#elif defined COMPLETE // complete graph
+#define NUM_USER_ARGS 2
+#elif defined BA       // Barabasi-Albert graph
 #define NUM_USER_ARGS 3
 #endif
 #endif
@@ -51,9 +57,11 @@ int main(int argc, char** argv) {
     // check usage
     if(argc != NUM_USER_ARGS || strcmp(argv[1],"-h") == 0 || strcmp(argv[1],"--help") == 0) {
         cerr << OPEN_MESSAGE << endl << "USAGE: " << argv[0] << " <num_nodes>"
-        #if defined COMPLETE // complete graph
+        #if defined EMPTY      // empty graph
             // no parameters needed
-        #elif defined BA     // Barabasi-Albert graph
+        #elif defined COMPLETE // complete graph
+            // no parameters needed
+        #elif defined BA       // Barabasi-Albert graph
             " <num_edges_from_new>"
         #endif
         << endl; exit(1);
@@ -70,9 +78,11 @@ int main(int argc, char** argv) {
 
     // parse parameter(s)
     unsigned long long const N = stoull(argv[1]);
-    #if defined COMPLETE // complete graph
+    #if defined EMPTY      // empty graph
         // no parameters needed
-    #elif defined BA     // Barabasi-Albert graph
+    #elif defined COMPLETE // complete graph
+        // no parameters needed
+    #elif defined BA       // Barabasi-Albert graph
         unsigned long long const M = stoull(argv[2]);
     #endif
 
@@ -80,9 +90,11 @@ int main(int argc, char** argv) {
     for(unsigned long long i = 0; i < N; ++i) {
         cout << "NODE\t" << i << "\t." << endl;
     }
-    #if defined COMPLETE // complete graph
+    #if defined EMPTY      // empty graph
+        // no edges
+    #elif defined COMPLETE // complete graph
         generate_complete_graph(N);
-    #elif defined BA     // Barabasi-Albert graph
+    #elif defined BA       // Barabasi-Albert graph
         generate_ba_graph(N, M);
     #endif
     return 0;
