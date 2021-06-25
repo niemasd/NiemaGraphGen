@@ -29,7 +29,7 @@ COMPLETE_H=complete.h
 COMPLETE_FILES=$(COMPLETE_CPP) $(COMPLETE_H)
 
 # Barabasi-Albert graph
-BA=ba
+BA=barabasi_albert
 BA_EXE=$(EXE_PREFIX)_$(BA)
 BA_DEBUG=$(BA)_$(DEBUG_SUFFIX)
 BA_DEBUG_EXE=$(EXE_PREFIX)_$(BA_DEBUG)
@@ -37,9 +37,18 @@ BA_CPP=barabasi_albert.cpp
 BA_H=barabasi_albert.h
 BA_FILES=$(BA_CPP) $(BA_H)
 
+# Erdos-Renyi graph
+ER=erdos_renyi
+ER_EXE=$(EXE_PREFIX)_$(ER)
+ER_DEBUG=$(ER)_$(DEBUG_SUFFIX)
+ER_DEBUG_EXE=$(EXE_PREFIX)_$(ER_DEBUG)
+ER_CPP=erdos_renyi.cpp
+ER_H=erdos_renyi.h
+ER_FILES=$(ER_CPP) $(ER_H)
+
 # compile all executables
-RELEASE_EXES=$(EMPTY_EXE) $(COMPLETE_EXE) $(BA_EXE)
-DEBUG_EXES=$(EMPTY_DEBUG_EXE) $(COMPLETE_DEBUG_EXE) $(BA_DEBUG_EXE)
+RELEASE_EXES=$(EMPTY_EXE) $(COMPLETE_EXE) $(BA_EXE) $(ER_EXE)
+DEBUG_EXES=$(EMPTY_DEBUG_EXE) $(COMPLETE_DEBUG_EXE) $(BA_DEBUG_EXE) $(ER_DEBUG_EXE)
 all: $(RELEASE_EXES)
 debug: $(DEBUG_EXES)
 
@@ -63,6 +72,13 @@ $(BA_EXE): $(GLOBAL_DEPS) $(BA_FILES)
 	$(CXX) $(RELEASEFLAGS) $(BA_FLAG) -o $(BA_EXE) $(CPP_FILES) $(BA_CPP)
 $(BA_DEBUG_EXE): $(GLOBAL_DEPS) $(BA_FILES)
 	$(CXX) $(DEBUGFLAGS) $(BA_FLAG) -o $(BA_DEBUG_EXE) $(CPP_FILES) $(BA_CPP)
+
+# Erdos-Renyi graph
+ER_FLAG=-DER
+$(ER_EXE): $(GLOBAL_DEPS) $(ER_FILES)
+	$(CXX) $(RELEASEFLAGS) $(ER_FLAG) -o $(ER_EXE) $(CPP_FILES) $(ER_CPP)
+$(ER_DEBUG_EXE): $(GLOBAL_DEPS) $(ER_FILES)
+	$(CXX) $(DEBUGFLAGS) $(ER_FLAG) -o $(ER_DEBUG_EXE) $(CPP_FILES) $(ER_CPP)
 
 # clean things up
 clean:

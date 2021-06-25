@@ -1,10 +1,12 @@
 # NiemaGraphGen executables
-ngg_ba
-ngg_ba_debug
+ngg_barabasi_albert
+ngg_barabasi_albert_debug
 ngg_complete
 ngg_complete_debug
 ngg_empty
 ngg_empty_debug
+ngg_erdos_renyi
+ngg_erdos_renyi_debug
 
 # Prerequisites
 *.d

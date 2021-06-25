@@ -21,6 +21,8 @@ using namespace std;
 #include "complete.h"
 #elif defined BA       // Barabasi-Albert graph
 #include "barabasi_albert.h"
+#elif defined ER       // Erdos-Renyi graph
+#include "erdos_renyi.h"
 #endif
 
 // description
@@ -37,6 +39,8 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 " (Complete Graph)"
 #elif defined BA       // Barabasi-Albert graph
 " (Barabasi-Albert)"
+#elif defined ER       // Erdos-Renyi graph
+" (Erdos-Renyi)"
 #endif
 );
 #endif
@@ -48,6 +52,8 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 #elif defined COMPLETE // complete graph
 #define NUM_USER_ARGS 2
 #elif defined BA       // Barabasi-Albert graph
+#define NUM_USER_ARGS 3
+#elif defined ER       // Erdos-Renyi graph
 #define NUM_USER_ARGS 3
 #endif
 #endif
@@ -63,6 +69,8 @@ int main(int argc, char** argv) {
             // no parameters needed
         #elif defined BA       // Barabasi-Albert graph
             " <num_edges_from_new>"
+        #elif defined ER       // Erdos-Renyi graph
+            " <prob_edge_creation>"
         #endif
         << endl; exit(1);
     }
@@ -84,6 +92,8 @@ int main(int argc, char** argv) {
         // no parameters needed
     #elif defined BA       // Barabasi-Albert graph
         unsigned long long const M = stoull(argv[2]);
+    #elif defined ER       // Erdos-Renyi graph
+        long double const P = stold(argv[2]);
     #endif
 
     // generate graph
@@ -96,6 +106,8 @@ int main(int argc, char** argv) {
         generate_complete_graph(N);
     #elif defined BA       // Barabasi-Albert graph
         generate_ba_graph(N, M);
+    #elif defined ER       // Erdos-Renyi graph
+        generate_er_graph(N, P);
     #endif
     return 0;
 }

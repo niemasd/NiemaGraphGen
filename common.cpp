@@ -4,6 +4,8 @@
 // initialize extern variables from common.h
 int RNG_SEED = chrono::system_clock::now().time_since_epoch().count();
 default_random_engine RNG(RNG_SEED);
+unsigned long long const ONE_ULL = (unsigned long long)1;
+long double ONE_LD = (long double)1.;
 
 /**
  * implement Robert Floyd's sampling algorithm

@@ -9,27 +9,10 @@ using namespace std;
 extern int RNG_SEED;
 extern default_random_engine RNG;
 
-/*
-class RangeSamples {
-    public:
-        unsigned long long const MIN_VAL;
-        unsigned long long const MAX_VAL;
-        unsigned long long const NUM_SAMPLES;
-        RangeSamples(unsigned long long const & min_val, unsigned long long const & max_val, unsigned long long const & num_samples);
-        class iterator {
-            public:
-                bool const VALID;
-                unsigned long long VALUE;
-                iterator(bool const & valid, unsigned long long const & value);
-                unsigned long long operator*();
-                void operator++();
-                bool operator!=(iterator);
-        };
-        iterator begin();
-        iterator end();
-};
-RangeSamples sample_range_no_replacement(unsigned long long const & min_val, unsigned long long const & max_val, unsigned long long const & num_samples);
-*/
+// useful constants
+extern unsigned long long const ONE_ULL;
+extern long double ONE_LD;
+
 /**
  * Sample multiple integers in a given range [min_val, max_val]
  * @param min_val Minimum value in the range
