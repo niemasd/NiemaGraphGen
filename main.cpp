@@ -21,6 +21,8 @@ using namespace std;
 #include "barbell.h"
 #elif defined COMPLETE  // complete graph
 #include "complete.h"
+#elif defined CYCLE     // cycle graph
+#include "cycle.h"
 #elif defined EMPTY     // empty graph
 // no imports needed
 #elif defined ER        // Erdos-Renyi graph
@@ -48,6 +50,8 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 " (Barbell Graph)"
 #elif defined COMPLETE  // complete graph
 " (Complete Graph)"
+#elif defined CYCLE     // cycle graph
+" (Cycle Graph)"
 #elif defined EMPTY     // empty graph
 " (Empty Graph)"
 #elif defined ER        // Erdos-Renyi graph
@@ -65,6 +69,8 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 #elif defined BARBELL   // barbell graph
 #define NUM_USER_ARGS 3
 #elif defined COMPLETE  // complete graph
+#define NUM_USER_ARGS 2
+#elif defined CYCLE     // cycle graph
 #define NUM_USER_ARGS 2
 #elif defined EMPTY     // empty graph
 #define NUM_USER_ARGS 2
@@ -85,6 +91,8 @@ int main(int argc, char** argv) {
         #elif defined BARBELL   // barbell graph
             + "<num_nodes_complete> <num_nodes_path>"
         #elif defined COMPLETE  // complete graph
+            + " <num_nodes>"
+        #elif defined CYCLE     // cycle graph
             + " <num_nodes>"
         #elif defined EMPTY     // empty graph
             + " <num_nodes>"
@@ -129,6 +137,11 @@ int main(int argc, char** argv) {
         if(N == 0) {
             error("Number of nodes must be non-zero");
         }
+    #elif defined CYCLE     // cycle graph
+        unsigned long long const N = stoull(argv[1]);
+        if(N == 0) {
+            error("Number of nodes must be non-zero");
+        }
     #elif defined EMPTY     // empty graph
         unsigned long long const N = stoull(argv[1]);
         if(N == 0) {
@@ -157,6 +170,8 @@ int main(int argc, char** argv) {
         generate_barbell_graph(M1, M2);
     #elif defined COMPLETE  // complete graph
         generate_complete_graph(N);
+    #elif defined CYCLE     // cycle graph
+        generate_cycle_graph(N);
     #elif defined EMPTY     // empty graph
         writer.write_nodes(N);
     #elif defined ER        // Erdos-Renyi graph

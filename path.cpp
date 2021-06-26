@@ -1,5 +1,5 @@
-#include "path.h"
 #include "common.h"
+#include "path.h"
 using namespace std;
 
 void generate_path_graph(unsigned long long const & N) {

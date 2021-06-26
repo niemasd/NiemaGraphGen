@@ -5,6 +5,8 @@ ngg_barbell
 ngg_barbell_debug
 ngg_complete
 ngg_complete_debug
+ngg_cycle
+ngg_cycle_debug
 ngg_empty
 ngg_empty_debug
 ngg_erdos_renyi
