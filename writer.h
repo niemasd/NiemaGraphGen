@@ -32,7 +32,12 @@ class WriterFAVITES : public Writer {
  * Write graphs in the compact format
  */
 class WriterCompact : public Writer {
+    private:
+        unsigned long long max_node_label;
+        bool wrote_max_node_label;
     public:
+        WriterCompact();
+        ~WriterCompact();
         void write_node(unsigned long long const & u);
         void write_edge(unsigned long long const & u, unsigned long long const & v);
 };
