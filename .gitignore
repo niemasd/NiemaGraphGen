@@ -1,6 +1,8 @@
 # NiemaGraphGen executables
 ngg_barabasi_albert
 ngg_barabasi_albert_debug
+ngg_barbell
+ngg_barbell_debug
 ngg_complete
 ngg_complete_debug
 ngg_empty

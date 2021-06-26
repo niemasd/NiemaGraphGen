@@ -6,10 +6,10 @@
 class Writer {
     public:
         /**
-         * Write a node to standard output
-         * @param u The node to output
+         * Write the nodes 0 to N-1
+         * @param N The total number of nodes
          */
-        virtual void write_node(unsigned long long const & u) = 0;
+        virtual void write_nodes(unsigned long long const & N) = 0;
 
         /**
          * Write an edge to standard output
@@ -24,7 +24,7 @@ class Writer {
  */
 class WriterFAVITES : public Writer {
     public:
-        void write_node(unsigned long long const & u);
+        void write_nodes(unsigned long long const & N);
         void write_edge(unsigned long long const & u, unsigned long long const & v);
 };
 
@@ -32,13 +32,8 @@ class WriterFAVITES : public Writer {
  * Write graphs in the compact format
  */
 class WriterCompact : public Writer {
-    private:
-        unsigned long long max_node_label;
-        bool wrote_max_node_label;
     public:
-        WriterCompact();
-        ~WriterCompact();
-        void write_node(unsigned long long const & u);
+        void write_nodes(unsigned long long const & N);
         void write_edge(unsigned long long const & u, unsigned long long const & v);
 };
 #endif
