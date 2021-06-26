@@ -24,6 +24,12 @@ WriterCompact
 writer;
 
 /**
+ * Write error message to standard error and crash program
+ * @param message Error message to print
+ */
+void error(string const & message);
+
+/**
  * Sample multiple integers in a given range [min_val, max_val]
  * @param min_val Minimum value in the range
  * @param max_val Maximum value in the range

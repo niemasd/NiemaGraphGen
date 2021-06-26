@@ -67,17 +67,17 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 int main(int argc, char** argv) {
     // check usage
     if(argc != NUM_USER_ARGS || strcmp(argv[1],"-h") == 0 || strcmp(argv[1],"--help") == 0) {
-        cerr << OPEN_MESSAGE << endl << "USAGE: " << argv[0] << " <num_nodes>"
+        error(OPEN_MESSAGE + "\nUSAGE: " + argv[0] + " <num_nodes>"
         #if defined EMPTY      // empty graph
             // no parameters needed
         #elif defined COMPLETE // complete graph
             // no parameters needed
         #elif defined BA       // Barabasi-Albert graph
-            " <num_edges_from_new>"
+            + " <num_edges_from_new>"
         #elif defined ER       // Erdos-Renyi graph
-            " <prob_edge_creation>"
+            + " <prob_edge_creation>"
         #endif
-        << endl; exit(1);
+        );
     }
 
     // check if user provided a seed

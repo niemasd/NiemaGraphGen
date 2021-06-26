@@ -1,4 +1,3 @@
-#include <iostream>
 #include "common.h"
 #include "complete.h"
 using namespace std;

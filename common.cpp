@@ -15,6 +15,11 @@ WriterCompact
 #endif
 writer;
 
+// error function
+void error(string const & message) {
+    cerr << message << endl; exit(1);
+}
+
 /**
  * implement Robert Floyd's sampling algorithm
  * https://www.gormanalysis.com/blog/random-numbers-in-cpp/#sampling-without-replacement
