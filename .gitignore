@@ -9,6 +9,8 @@ ngg_empty
 ngg_empty_debug
 ngg_erdos_renyi
 ngg_erdos_renyi_debug
+ngg_path
+ngg_path_debug
 
 # Prerequisites
 *.d

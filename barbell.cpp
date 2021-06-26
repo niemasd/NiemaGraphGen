@@ -7,8 +7,8 @@ void generate_barbell_graph(unsigned long long const & M1, unsigned long long co
     unsigned long long const M1_MINUS_1 = M1-1;
     unsigned long long const TWO_M1 = 2*M1;
     unsigned long long const TWO_M1_MINUS_1 = TWO_M1-1;
-    unsigned long long NUM_NODES = TWO_M1 + M2;
-    unsigned long long NUM_NODES_MINUS_1 = NUM_NODES-1;
+    unsigned long long const NUM_NODES = TWO_M1 + M2;
+    unsigned long long const NUM_NODES_MINUS_1 = NUM_NODES-1;
     writer.write_nodes(NUM_NODES);
 
     // 0 to M1-1 are the first complete graph
