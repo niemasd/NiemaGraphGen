@@ -33,6 +33,11 @@ using namespace std;
 // opening message
 #ifndef OPEN_MESSAGE
 const string OPEN_MESSAGE = DESCRIPTION + string(
+#if defined OUTFAVITES   // FAVITES output format
+" (FAVITES Output Format)"
+#elif defined OUTCOMPACT // compact output format
+" (Compact Output Format)"
+#endif
 #if defined EMPTY      // empty graph
 " (Empty Graph)"
 #elif defined COMPLETE // complete graph
@@ -98,7 +103,7 @@ int main(int argc, char** argv) {
 
     // generate graph
     for(unsigned long long i = 0; i < N; ++i) {
-        cout << "NODE\t" << i << "\t." << endl;
+        writer.write_node(i);
     }
     #if defined EMPTY      // empty graph
         // no edges

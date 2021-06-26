@@ -3,11 +3,11 @@ CXX=g++
 CXXFLAGS?=-Wall -pedantic -std=c++11
 
 # # flag specifications for release and debug
-RELEASEFLAGS?=$(CXXFLAGS) -O3
+RELEASEFLAGS?=$(CXXFLAGS) -O3 -DOUTFAVITES # use -DOUTCOMPACT for the compact output format
 DEBUGFLAGS?=$(CXXFLAGS) -O0 -g #-pg
 
 # relevant constants
-CPP_FILES=main.cpp common.cpp
+CPP_FILES=main.cpp common.cpp writer.cpp
 HEADER_FILES=common.h
 GLOBAL_DEPS=$(CPP_FILES) $(HEADER_FILES)
 EXE_PREFIX=ngg

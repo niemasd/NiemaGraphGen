@@ -3,6 +3,7 @@
 #include <chrono>
 #include <random>
 #include <unordered_set>
+#include "writer.h"
 using namespace std;
 
 // random number generation
@@ -12,6 +13,15 @@ extern default_random_engine RNG;
 // useful constants
 extern unsigned long long const ONE_ULL;
 extern long double ONE_LD;
+
+// declare output writer
+extern
+#if defined OUTFAVITES   // FAVITES output format
+WriterFAVITES
+#elif defined OUTCOMPACT // compact output format
+WriterCompact
+#endif
+writer;
 
 /**
  * Sample multiple integers in a given range [min_val, max_val]

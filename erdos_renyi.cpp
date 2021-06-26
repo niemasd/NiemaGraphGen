@@ -18,7 +18,7 @@ void generate_er_graph(unsigned long long const & N, long double const & P) {
             w -= v++;
         }
         if(v < N) {
-            cout << "EDGE\t" << v << '\t' << w << "\t.\tu" << endl;
+            writer.write_edge(v, w);
         }
     }
 }

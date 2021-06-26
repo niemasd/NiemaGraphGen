@@ -7,6 +7,14 @@ default_random_engine RNG(RNG_SEED);
 unsigned long long const ONE_ULL = (unsigned long long)1;
 long double ONE_LD = (long double)1.;
 
+// set up writer
+#if defined OUTFAVITES   // FAVITES output format
+WriterFAVITES
+#elif defined OUTCOMPACT // compact output format
+WriterCompact
+#endif
+writer;
+
 /**
  * implement Robert Floyd's sampling algorithm
  * https://www.gormanalysis.com/blog/random-numbers-in-cpp/#sampling-without-replacement
