@@ -1,6 +1,5 @@
 #include "barabasi_albert.h"
 #include "common.h"
-using namespace std;
 
 void generate_ba_graph(unsigned long long const & N, unsigned long long const & M) {
     writer.write_nodes(N);

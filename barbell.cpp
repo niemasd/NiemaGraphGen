@@ -1,6 +1,5 @@
 #include "barbell.h"
 #include "common.h"
-using namespace std;
 
 void generate_barbell_graph(unsigned long long const & M1, unsigned long long const & M2) {
     // create useful constants and write nodes

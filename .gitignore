@@ -13,6 +13,8 @@ ngg_erdos_renyi
 ngg_erdos_renyi_debug
 ngg_path
 ngg_path_debug
+ngg_ring_lattice
+ngg_ring_lattice_debug
 
 # Prerequisites
 *.d

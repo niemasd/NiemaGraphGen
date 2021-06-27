@@ -1,6 +1,5 @@
 #include "common.h"
 #include "path.h"
-using namespace std;
 
 void generate_path_graph(unsigned long long const & N) {
     unsigned long long const N_MINUS_1 = N-1;
