@@ -1,15 +1,14 @@
 #include <cmath>
-#include "common.h"
 #include "erdos_renyi.h"
 
 // https://networkx.org/documentation/stable/_modules/networkx/generators/random_graphs.html#fast_gnp_random_graph
-void generate_er_graph(unsigned long long const & N, long double const & P) {
+void generate_er_graph(NGG_UINT const & N, long double const & P) {
     long double const LP = log(ONE_LD - P);
-    unsigned long long v = 1;
-    unsigned long long w = (unsigned long long)-1;
+    NGG_UINT v = 1;
+    NGG_UINT w = (NGG_UINT)-1;
     writer.write_nodes(N);
     while(v < N) {
-        w += (ONE_ULL + (unsigned long long)(log(ONE_LD - uniform_real_distribution<long double>(0,1)(RNG)) / LP));
+        w += (ONE_ULL + (NGG_UINT)(log(ONE_LD - uniform_real_distribution<long double>(0,1)(RNG)) / LP));
         while(w >= v && v < N) {
             w -= v++;
         }

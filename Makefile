@@ -2,15 +2,25 @@
 CXX=g++
 CXXFLAGS?=-Wall -pedantic -std=c++11
 
-# output format (use -DOUTCOMPACT for the compact output format)
+# output format
+# -DOUTFAVITES for the FAVITES contact network format
+# -DOUTCOMPACT for the compact output format
 OUTFLAG=-DOUTFAVITES
 
+# unsigned integer type
+# -DNGG_UINT_8 for 8-bit
+# -DNGG_UINT_16 for 16-bit
+# -DNGG_UINT_32 for 32-bit
+# -DNGG_UINT_64 for 64-bit
+UINTFLAG=-DNGG_UINT_64
+
+
 # flag specifications for release and debug
-RELEASEFLAGS?=$(CXXFLAGS) $(OUTFLAG) -O3
-DEBUGFLAGS?=$(CXXFLAGS) $(OUTFLAG) -O0 -g #-pg
+RELEASEFLAGS?=$(CXXFLAGS) $(OUTFLAG) $(UINTFLAG) -O3
+DEBUGFLAGS?=$(CXXFLAGS) $(OUTFLAG) $(UINTFLAG) -O0 -g #-pg
 
 # relevant constants
-CPP_FILES=main.cpp common.cpp writer.cpp
+CPP_FILES=main.cpp common.cpp
 HEADER_FILES=common.h
 GLOBAL_DEPS=$(CPP_FILES) $(HEADER_FILES)
 EXE_PREFIX=ngg

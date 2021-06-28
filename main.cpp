@@ -123,8 +123,8 @@ int main(int argc, char** argv) {
 
     // parse parameter(s)
     #if   defined BA         // Barabasi-Albert graph
-        unsigned long long const N = stoull(argv[1]);
-        unsigned long long const M = stoull(argv[2]);
+        NGG_UINT const N = stoull(argv[1]);
+        NGG_UINT const M = stoull(argv[2]);
         if(N == 0) {
             error("Number of nodes must be non-zero");
         }
@@ -135,28 +135,28 @@ int main(int argc, char** argv) {
             error("Number of nodes must be larger than number of edges from new");
         }
     #elif defined BARBELL     // barbell graph
-        unsigned long long const M1 = stoull(argv[1]);
-        unsigned long long const M2 = stoull(argv[2]);
+        NGG_UINT const M1 = stoull(argv[1]);
+        NGG_UINT const M2 = stoull(argv[2]);
         if(M1 == 0 || M2 == 0) {
             error("Number of nodes must be non-zero");
         }
     #elif defined COMPLETE    // complete graph
-        unsigned long long const N = stoull(argv[1]);
+        NGG_UINT const N = stoull(argv[1]);
         if(N == 0) {
             error("Number of nodes must be non-zero");
         }
     #elif defined CYCLE       // cycle graph
-        unsigned long long const N = stoull(argv[1]);
+        NGG_UINT const N = stoull(argv[1]);
         if(N == 0) {
             error("Number of nodes must be non-zero");
         }
     #elif defined EMPTY       // empty graph
-        unsigned long long const N = stoull(argv[1]);
+        NGG_UINT const N = stoull(argv[1]);
         if(N == 0) {
             error("Number of nodes must be non-zero");
         }
     #elif defined ER          // Erdos-Renyi graph
-        unsigned long long const N = stoull(argv[1]);
+        NGG_UINT const N = stoull(argv[1]);
         long double const P = stold(argv[2]);
         if(N == 0) {
             error("Number of nodes must be non-zero");
@@ -165,13 +165,13 @@ int main(int argc, char** argv) {
             error("Probability must be in range [0,1]");
         }
     #elif defined PATHGRAPH   // path graph
-        unsigned long long const N = stoull(argv[1]);
+        NGG_UINT const N = stoull(argv[1]);
         if(N == 0) {
             error("Number of nodes must be non-zero");
         }
     #elif defined RINGLATTICE // ring lattice
-        unsigned long long const N = stoull(argv[1]);
-        unsigned long long const K = stoull(argv[2]);
+        NGG_UINT const N = stoull(argv[1]);
+        NGG_UINT const K = stoull(argv[2]);
         if(N == 0) {
             error("Number of nodes must be non-zero");
         }
