@@ -1,10 +1,13 @@
 #ifndef COMMON_H
 #define COMMON_H
+#include <algorithm>
 #include <chrono>
+#include <cmath>
 #include <cstdint>
 #include <iostream>
 #include <random>
 #include <unordered_set>
+#include <utility>
 using namespace std;
 
 // data type for unsigned integers
@@ -27,8 +30,12 @@ extern int RNG_SEED;
 extern default_random_engine RNG;
 
 // useful constants
+extern long double HALF_LD;
 extern NGG_UINT const ONE_ULL;
 extern long double ONE_LD;
+extern NGG_UINT const TWO_ULL;
+extern long double TWO_LD;
+extern NGG_UINT const EIGHT_ULL;
 
 /**
  * Write graphs to standard output

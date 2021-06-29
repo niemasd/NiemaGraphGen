@@ -27,6 +27,8 @@ using namespace std;
 // no imports needed
 #elif defined ER          // Erdos-Renyi graph
 #include "erdos_renyi.h"
+#elif defined NWS         // Newman-Watts-Strogatz graph
+#include "newman_watts_strogatz.h"
 #elif defined PATHGRAPH   // path graph
 #include "path.h"
 #elif defined RINGLATTICE // ring lattice
@@ -58,6 +60,8 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 " (Empty Graph)"
 #elif defined ER          // Erdos-Renyi graph
 " (Erdos-Renyi)"
+#elif defined NWS         // Newman-Watts-Strogatz graph
+" (Newman-Watts-Strogatz)"
 #elif defined PATHGRAPH   // path graph
 " (Path Graph)"
 #elif defined RINGLATTICE // ring lattice
@@ -80,6 +84,8 @@ const string OPEN_MESSAGE = DESCRIPTION + string(
 #define NUM_USER_ARGS 2
 #elif defined ER          // Erdos-Renyi graph
 #define NUM_USER_ARGS 3
+#elif defined NWS         // Newman-Watts-Strogatz graph
+#define NUM_USER_ARGS 4
 #elif defined PATHGRAPH   // path graph
 #define NUM_USER_ARGS 2
 #elif defined RINGLATTICE // ring lattice
@@ -92,19 +98,21 @@ int main(int argc, char** argv) {
     // check usage
     if(argc != NUM_USER_ARGS || strcmp(argv[1],"-h") == 0 || strcmp(argv[1],"--help") == 0) {
         error(OPEN_MESSAGE + "\nUSAGE: " + argv[0]
-        #if   defined BA        // Barabasi-Albert graph
+        #if   defined BA          // Barabasi-Albert graph
             + " <num_nodes> <num_edges_from_new>"
-        #elif defined BARBELL   // barbell graph
+        #elif defined BARBELL     // barbell graph
             + "<num_nodes_complete> <num_nodes_path>"
-        #elif defined COMPLETE  // complete graph
+        #elif defined COMPLETE    // complete graph
             + " <num_nodes>"
-        #elif defined CYCLE     // cycle graph
+        #elif defined CYCLE       // cycle graph
             + " <num_nodes>"
-        #elif defined EMPTY     // empty graph
+        #elif defined EMPTY       // empty graph
             + " <num_nodes>"
-        #elif defined ER        // Erdos-Renyi graph
+        #elif defined ER          // Erdos-Renyi graph
             + " <num_nodes> <prob_edge_creation>"
-        #elif defined PATHGRAPH // path graph
+        #elif defined NWS         // Newman-Watts-Strogatz graph
+            + " <num_nodes> <lattice_degree> <prob_rewire>"
+        #elif defined PATHGRAPH   // path graph
             + " <num_nodes>"
         #elif defined RINGLATTICE // ring lattice
             + " <num_nodes> <degree>"
@@ -164,6 +172,22 @@ int main(int argc, char** argv) {
         if(P < 0 || P > 1) {
             error("Probability must be in range [0,1]");
         }
+    #elif defined NWS         // Newman-Watts-Strogatz graph
+        NGG_UINT const N = stoull(argv[1]);
+        NGG_UINT const K = stoull(argv[2]);
+        long double const P = stold(argv[3]);
+        if(N == 0) {
+            error("Number of nodes must be non-zero");
+        }
+        if(K % 2 != 0) {
+            error("Degree in a ring lattice must be even");
+        }
+        if(K >= N) {
+            error("Degree must be smaller than the number of nodes");
+        }
+        if(P < 0 || P > 1) {
+            error("Probability must be in range [0,1]");
+        }
     #elif defined PATHGRAPH   // path graph
         NGG_UINT const N = stoull(argv[1]);
         if(N == 0) {
@@ -196,6 +220,8 @@ int main(int argc, char** argv) {
         writer.write_nodes(N);
     #elif defined ER          // Erdos-Renyi graph
         generate_er_graph(N, P);
+    #elif defined NWS         // Newman-Watts-Strogatz graph
+        generate_nws_graph(N, K, P);
     #elif defined PATHGRAPH   // path graph
         generate_path_graph(N);
     #elif defined RINGLATTICE // ring lattice

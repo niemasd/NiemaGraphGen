@@ -11,6 +11,8 @@ ngg_empty
 ngg_empty_debug
 ngg_erdos_renyi
 ngg_erdos_renyi_debug
+ngg_newman_watts_strogatz
+ngg_newman_watts_strogatz_debug
 ngg_path
 ngg_path_debug
 ngg_ring_lattice
