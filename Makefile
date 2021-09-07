@@ -14,7 +14,6 @@ OUTFLAG=-DOUTFAVITES
 # -DNGG_UINT_64 for 64-bit
 UINTFLAG=-DNGG_UINT_64
 
-
 # flag specifications for release and debug
 RELEASEFLAGS?=$(CXXFLAGS) $(OUTFLAG) $(UINTFLAG) -O3
 DEBUGFLAGS?=$(CXXFLAGS) $(OUTFLAG) $(UINTFLAG) -O0 -g #-pg
