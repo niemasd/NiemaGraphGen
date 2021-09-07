@@ -13,15 +13,15 @@ using namespace std;
 // data type for unsigned integers
 #ifndef NGG_UINT
 #if   defined NGG_UINT_8
-#define NGG_UINT uint_fast8_t
+#define NGG_UINT uint8_t
 #elif defined NGG_UINT_16
-#define NGG_UINT uint_fast16_t
+#define NGG_UINT uint16_t
 #elif defined NGG_UINT_32
-#define NGG_UINT uint_fast32_t
+#define NGG_UINT uint32_t
 #elif defined NGG_UINT_64
-#define NGG_UINT uint_fast64_t
+#define NGG_UINT uint64_t
 #else // default
-#define NGG_UINT uint_fast64_t 
+#define NGG_UINT uint64_t
 #endif
 #endif
 

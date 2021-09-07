@@ -22,6 +22,15 @@ void WriterFAVITES::write_edge(NGG_UINT const & u, NGG_UINT const & v) {
 
 // compact output format
 void WriterCompact::write_nodes(NGG_UINT const & N) {
+    uint_fast8_t flags = 0; // 000000AA
+    switch(sizeof(NGG_UINT)) {
+        case 1:             break; // AA = 00
+        case 2: flags |= 1; break; // AA = 01
+        case 4: flags |= 2; break; // AA = 10
+        case 8: flags |= 3; break; // AA = 11
+        default: cerr << "Invalid NGG_UINT" << endl; exit(1);
+    }
+    cout.put(flags);
     cout.write((char*)&N, sizeof(N));
 }
 void WriterCompact::write_edge(NGG_UINT const & u, NGG_UINT const & v) {
