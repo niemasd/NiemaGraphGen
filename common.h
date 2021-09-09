@@ -20,8 +20,8 @@ using namespace std;
 #define NGG_UINT uint32_t
 #elif defined NGG_UINT_64
 #define NGG_UINT uint64_t
-#else // default
-#define NGG_UINT uint64_t
+#else
+#error Must specify NGG_UINT_? flag
 #endif
 #endif
 
@@ -80,6 +80,8 @@ extern
 WriterFAVITES
 #elif defined OUTCOMPACT // compact output format
 WriterCompact
+#else
+#error Must specify OUT? flag
 #endif
 writer;
 

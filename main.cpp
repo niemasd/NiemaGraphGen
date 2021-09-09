@@ -6,7 +6,7 @@ using namespace std;
 
 // NiemaGraphGen version
 #ifndef NGG_VERSION
-#define NGG_VERSION "1.0.2"
+#define NGG_VERSION "1.0.3"
 #endif
 
 // RNG seed environment variable
@@ -43,29 +43,44 @@ using namespace std;
 // opening message
 #ifndef OPEN_MESSAGE
 const string OPEN_MESSAGE = DESCRIPTION + string(
+// output format
+" "
 #if   defined OUTFAVITES // FAVITES output format
-" (FAVITES Output Format)"
+"(FAVITES Output Format)"
 #elif defined OUTCOMPACT // compact output format
-" (Compact Output Format)"
+"(Compact Output Format)"
 #endif
+// unsigned int size
+" "
+#if   defined NGG_UINT_8
+"(8-bit)"
+#elif defined NGG_UINT_16
+"(16-bit)"
+#elif defined NGG_UINT_32
+"(32-bit)"
+#elif defined NGG_UINT_64
+"(64-bit)"
+#endif
+// network model
+" "
 #if   defined BA          // Barabasi-Albert graph
-" (Barabasi-Albert)"
+"(Barabasi-Albert)"
 #elif defined BARBELL     // barbell graph
-" (Barbell Graph)"
+"(Barbell Graph)"
 #elif defined COMPLETE    // complete graph
-" (Complete Graph)"
+"(Complete Graph)"
 #elif defined CYCLE       // cycle graph
-" (Cycle Graph)"
+"(Cycle Graph)"
 #elif defined EMPTY       // empty graph
-" (Empty Graph)"
+"(Empty Graph)"
 #elif defined ER          // Erdos-Renyi graph
-" (Erdos-Renyi)"
+"(Erdos-Renyi)"
 #elif defined NWS         // Newman-Watts-Strogatz graph
-" (Newman-Watts-Strogatz)"
+"(Newman-Watts-Strogatz)"
 #elif defined PATHGRAPH   // path graph
-" (Path Graph)"
+"(Path Graph)"
 #elif defined RINGLATTICE // ring lattice
-" (Ring Lattice)"
+"(Ring Lattice)"
 #endif
 );
 #endif
