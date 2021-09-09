@@ -12,7 +12,7 @@ OUTFLAG=-DOUTFAVITES
 # -DNGG_UINT_16 for 16-bit
 # -DNGG_UINT_32 for 32-bit
 # -DNGG_UINT_64 for 64-bit
-UINTFLAG=-DNGG_UINT_64
+UINTFLAG=-DNGG_UINT_32
 
 # flag specifications for release and debug
 RELEASEFLAGS?=$(CXXFLAGS) $(OUTFLAG) $(UINTFLAG) -O3
