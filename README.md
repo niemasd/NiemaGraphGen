@@ -20,3 +20,10 @@ cd NiemaGraphGen
 make
 sudo mv ngg_* /usr/local/bin/ # optional; install NGG executables globally
 ```
+
+## Usage
+Each graph generator is implemented as its own `ngg_???` executable. To view each generator's usage message, simply run the executable with the `-h` or `--help` argument:
+
+```bash
+ngg_barabasi_albert -h # show the usage message for the Barabási–Albert generator
+```
