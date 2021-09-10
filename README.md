@@ -27,3 +27,6 @@ Each graph generator is implemented as its own `ngg_???` executable. To view eac
 ```bash
 ngg_barabasi_albert -h # show the usage message for the Barabási–Albert generator
 ```
+
+# Citing NiemaGraphGen
+A manuscript is in the works, but until it's released, please cite this GitHub repository.
