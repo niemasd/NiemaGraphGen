@@ -11,7 +11,7 @@ NiemaGraphGen (NGG) is a collection of efficient C++ implementations of graph ge
 * [Path graph](https://en.wikipedia.org/wiki/Path_graph)
 * [Ring lattce](https://runestone.academy/runestone/books/published/complex/SmallWorldGraphs/RingLattice.html)
 
-## Installation
+# Installation
 NGG is written in C++ and has no dependencies beyond a modern C++ compiler (and `make` for convenience). You can simply download the latest release tarball (or clone the repo) and compile with `make`:
 
 ```bash
@@ -20,6 +20,16 @@ cd NiemaGraphGen
 make
 sudo mv ngg_* /usr/local/bin/ # optional; install NGG executables globally
 ```
+
+# Usage
+Each graph generator is implemented as its own `ngg_???` executable. To view each generator's usage message, simply run the executable with the `-h` or `--help` argument:
+
+```bash
+ngg_barabasi_albert -h # show the usage message for the Barabási–Albert generator
+```
+
+# Advanced Compilation Options
+The default compilation options (i.e., by downloading the NGG source code and running `make`) should be sufficient for most use-cases. However, NGG supports some advanced compilation options that may be of interest.
 
 ### Changing the Size of Unsigned Integers
 NGG represents each node using an unsigned integer. By default, NGG uses 32-bit unsigned integers, which supports up to 2^32 - 1 = 4,294,967,295 nodes in a single graph. This is more than half the population of the Earth, so it should be sufficient for most simulation studies, but by changing the compilation flags, you can change this size as desired. In general, the larger the unsigned integer size, the larger networks you can simulate, but the more memory NGG will consume. To change the size of unsigned integers, you can change the following line in the [`Makefile`](Makefile):
@@ -49,13 +59,6 @@ To change the output format, you can change the following line in the [`Makefile
 ```make
 OUTFLAG=-DOUTFAVITES # FAVITES format
 OUTFLAG=-DOUTCOMPACT # compact format
-```
-
-## Usage
-Each graph generator is implemented as its own `ngg_???` executable. To view each generator's usage message, simply run the executable with the `-h` or `--help` argument:
-
-```bash
-ngg_barabasi_albert -h # show the usage message for the Barabási–Albert generator
 ```
 
 # Citing NiemaGraphGen
