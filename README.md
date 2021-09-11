@@ -22,30 +22,13 @@ sudo mv ngg_* /usr/local/bin/ # optional; install NGG executables globally
 ```
 
 ### Changing Size of Unsigned Integers
-NGG represents each node using an unsigned integer. By default, NGG uses 32-bit unsigned integers, which supports up to 2^32 - 1 = 4,294,967,295 nodes in a single graph. This is more than half the population of the Earth, so it should be sufficient for most simulation studies, but if you need to generate larger graphs, you can compile NGG to use 64-bit unsigned integers by changing the following line in the [`Makefile`](Makefile):
+NGG represents each node using an unsigned integer. By default, NGG uses 32-bit unsigned integers, which supports up to 2^32 - 1 = 4,294,967,295 nodes in a single graph. This is more than half the population of the Earth, so it should be sufficient for most simulation studies, but by changing the compilation flags, you can change this size as desired. In general, the larger the unsigned integer size, the larger networks you can simulate, but the more memory NGG will consume. You can change the following line in the [`Makefile`](Makefile):
 
 ```make
-UINTFLAG=-DNGG_UINT_32
-```
-
-to the following:
-
-```make
-UINTFLAG=-DNGG_UINT_64
-```
-
-This will allow you to simulate graphs with up to 2^64 - 1 = 18,446,744,073,709,551,615 (18 quintillion) nodes, but it will roughly double NGG's memory consumption.
-
-If you want to do the *reverse* (reduce memory consumption at the expense of smaller graph sizes), you can change the same line to the following to use 16-bit unsigned integers (which support up to 2^16 - 1 = 65,535 nodes):
-
-```make
-UINTFLAG=-DNGG_UINT_16
-```
-
-And for 8-bit unsigned integers (which support up to 2^8 - 1 = 255 nodes):
-
-```make
-UINTFLAG=-DNGG_UINT_8
+UINTFLAG=-DNGG_UINT_8  #  8-bit (up to 2^8  - 1 = 255 nodes)
+UINTFLAG=-DNGG_UINT_16 # 16-bit (up to 2^16 - 1 = 65,535 nodes)
+UINTFLAG=-DNGG_UINT_32 # 32-bit (up to 2^32 - 1 = 4,294,967,295 nodes) (default)
+UINTFLAG=-DNGG_UINT_64 # 64-bit (up to 2^64 - 1 = 18,446,744,073,709,551,615 nodes)
 ```
 
 ## Usage
