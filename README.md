@@ -34,7 +34,7 @@ UINTFLAG=-DNGG_UINT_64 # 64-bit (up to 2^64 - 1 = 18,446,744,073,709,551,615 nod
 ### Changing the Output Format
 By default, NGG outputs contact networks in the [FAVITES format](https://github.com/niemasd/FAVITES/wiki/File-Formats#contact-network-file-format). However, for ultra-large simulation studies, the resulting files may be massive. To address this, NGG also supports a "compact" binary output format, which is defined as follows:
 
-* **First Byte:** Flags (`000000AA`)
+* **First Byte:** Header (`000000AA`)
   * The 6 leftmost bits are currently unused (hence the `0` values)
   * `AA` represents the number of bytes *b* per integer (`00` = 1, `01` = 2, `10` = 4, and `11` = 8)
 * **Next *b* Bytes:** The total number of nodes in the graph
