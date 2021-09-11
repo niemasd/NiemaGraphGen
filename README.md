@@ -31,7 +31,7 @@ ngg_barabasi_albert -h # show the usage message for the Barabási–Albert gener
 # Advanced Compilation Options
 The default compilation options (i.e., by downloading the NGG source code and running `make`) should be sufficient for most use-cases. However, NGG supports some advanced compilation options that may be of interest.
 
-### Changing the Size of Unsigned Integers
+## Changing the Size of Unsigned Integers
 NGG represents each node using an unsigned integer. By default, NGG uses 32-bit unsigned integers, which supports up to 2^32 - 1 = 4,294,967,295 nodes in a single graph. This is more than half the population of the Earth, so it should be sufficient for most simulation studies, but by changing the compilation flags, you can change this size as desired. In general, the larger the unsigned integer size, the larger networks you can simulate, but the more memory NGG will consume. To change the size of unsigned integers, you can change the following line in the [`Makefile`](Makefile):
 
 ```make
@@ -41,7 +41,7 @@ UINTFLAG=-DNGG_UINT_32 # 32-bit (up to 2^32 - 1 = 4,294,967,295 nodes) (default)
 UINTFLAG=-DNGG_UINT_64 # 64-bit (up to 2^64 - 1 = 18,446,744,073,709,551,615 nodes)
 ```
 
-### Changing the Output Format
+## Changing the Output Format
 By default, NGG outputs contact networks in the [FAVITES format](https://github.com/niemasd/FAVITES/wiki/File-Formats#contact-network-file-format). However, for ultra-large simulation studies, the resulting files may be massive. To address this, NGG also supports a "compact" binary output format, which is defined as follows:
 
 * **First Byte:** Header (`000000AA`)
