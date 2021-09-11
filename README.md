@@ -22,13 +22,33 @@ sudo mv ngg_* /usr/local/bin/ # optional; install NGG executables globally
 ```
 
 ### Changing the Size of Unsigned Integers
-NGG represents each node using an unsigned integer. By default, NGG uses 32-bit unsigned integers, which supports up to 2^32 - 1 = 4,294,967,295 nodes in a single graph. This is more than half the population of the Earth, so it should be sufficient for most simulation studies, but by changing the compilation flags, you can change this size as desired. In general, the larger the unsigned integer size, the larger networks you can simulate, but the more memory NGG will consume. You can change the following line in the [`Makefile`](Makefile):
+NGG represents each node using an unsigned integer. By default, NGG uses 32-bit unsigned integers, which supports up to 2^32 - 1 = 4,294,967,295 nodes in a single graph. This is more than half the population of the Earth, so it should be sufficient for most simulation studies, but by changing the compilation flags, you can change this size as desired. In general, the larger the unsigned integer size, the larger networks you can simulate, but the more memory NGG will consume. To change the size of unsigned integers, you can change the following line in the [`Makefile`](Makefile):
 
 ```make
 UINTFLAG=-DNGG_UINT_8  #  8-bit (up to 2^8  - 1 = 255 nodes)
 UINTFLAG=-DNGG_UINT_16 # 16-bit (up to 2^16 - 1 = 65,535 nodes)
 UINTFLAG=-DNGG_UINT_32 # 32-bit (up to 2^32 - 1 = 4,294,967,295 nodes) (default)
 UINTFLAG=-DNGG_UINT_64 # 64-bit (up to 2^64 - 1 = 18,446,744,073,709,551,615 nodes)
+```
+
+### Changing the Output Format
+By default, NGG outputs contact networks in the [FAVITES format](https://github.com/niemasd/FAVITES/wiki/File-Formats#contact-network-file-format). However, for ultra-large simulation studies, the resulting files may be massive. To address this, NGG also supports a "compact" binary output format, which is defined as follows:
+
+* **First Byte:** Flags (`000000AA`)
+  * The 6 leftmost bits are currently unused (hence the `0` values)
+  * `AA` represents the number of bytes *b* per integer (`00` = 1, `01` = 2, `10` = 4, and `11` = 8)
+* **Next *b* Bytes:** The total number of nodes in the graph
+* **Remaining Bytes:** The edges (*u*,*v*) in the graph represented as blocks of 2*b* bytes
+  * The first *b* bytes in a block reprent *u*
+  * The second *b* bytes in a block represent *v*
+
+Both output formats should be fairly nicely compressible, which can further reduce output filesize (e.g. by piping to `gzip` to compress the stream).
+
+To change the output format, you can change the following line in the [`Makefile`](Makefile):
+
+```make
+OUTFLAG=-DOUTFAVITES # FAVITES format
+OUTFLAG=-DOUTCOMPACT # compact format
 ```
 
 ## Usage
