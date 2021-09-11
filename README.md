@@ -21,7 +21,7 @@ make
 sudo mv ngg_* /usr/local/bin/ # optional; install NGG executables globally
 ```
 
-### Changing Size of Unsigned Integers
+### Changing the Size of Unsigned Integers
 NGG represents each node using an unsigned integer. By default, NGG uses 32-bit unsigned integers, which supports up to 2^32 - 1 = 4,294,967,295 nodes in a single graph. This is more than half the population of the Earth, so it should be sufficient for most simulation studies, but by changing the compilation flags, you can change this size as desired. In general, the larger the unsigned integer size, the larger networks you can simulate, but the more memory NGG will consume. You can change the following line in the [`Makefile`](Makefile):
 
 ```make
