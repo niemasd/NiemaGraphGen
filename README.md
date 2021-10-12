@@ -9,7 +9,7 @@ NiemaGraphGen (NGG) is a collection of efficient C++ implementations of graph ge
 * [Erdős–Rényi model](https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model) (Erdős & Rényi, 1959)
 * [Newman–Watts–Strogatz model](https://doi.org/10.1016/S0375-9601(99)00757-4) ([Newman & Watts, 1999](https://doi.org/10.1016/S0375-9601(99)00757-4))
 * [Path graph](https://en.wikipedia.org/wiki/Path_graph)
-* [Ring lattce](https://runestone.academy/runestone/books/published/complex/SmallWorldGraphs/RingLattice.html)
+* [Ring lattice](https://runestone.academy/runestone/books/published/complex/SmallWorldGraphs/RingLattice.html)
 
 # Installation
 NGG is written in C++ and has no dependencies beyond a modern C++ compiler (and `make` for convenience). You can simply download the latest release tarball (or clone the repo) and compile with `make`:
