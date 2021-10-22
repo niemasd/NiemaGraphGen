@@ -6,7 +6,7 @@ using namespace std;
 
 // NiemaGraphGen version
 #ifndef NGG_VERSION
-#define NGG_VERSION "1.0.3"
+#define NGG_VERSION "1.0.4"
 #endif
 
 // RNG seed environment variable
