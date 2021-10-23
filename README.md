@@ -21,6 +21,8 @@ make
 sudo mv ngg_* /usr/local/bin/ # optional; install NGG executables globally
 ```
 
+You can also find a Docker container of NGG on DockerHub: [niemasd/niemagraphgen](https://hub.docker.com/r/niemasd/niemagraphgen)
+
 # Usage
 Each graph generator is implemented as its own `ngg_*` executable. To view each generator's usage message, simply run the executable with the `-h` or `--help` argument:
 
