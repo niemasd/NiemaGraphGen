@@ -150,7 +150,7 @@ void generate_nws_graph(NGG_UINT const & N, NGG_UINT const & K, long double cons
         // otherwise, edge is in the bottom triangle part of matrix
         else {
             tmp_ind = new_edge_int - FIRST_INDEX_TRIANGLE;
-            tmp_row = N_MINUS_K_MINUS_3 - (NGG_UINT)(sqrt(-EIGHT_ULL*tmp_ind + INNER_SQRT_TERM)/TWO_LD - HALF_LD);
+            tmp_row = N_MINUS_K_MINUS_3 - (NGG_UINT)((sqrt(-EIGHT_ULL*tmp_ind + INNER_SQRT_TERM)-ONE_ULL)/TWO_LD);
             u = tmp_row + K_OVER_2_PLUS_1;
             tmp_col = (N_MINUS_K_MINUS_1-tmp_row)*((N_MINUS_K_MINUS_1-tmp_row)-ONE_ULL)/TWO_ULL - NMKM1_C_2 + tmp_ind;
         }
