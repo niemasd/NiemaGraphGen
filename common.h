@@ -30,7 +30,6 @@ extern int RNG_SEED;
 extern default_random_engine RNG;
 
 // useful constants
-extern long double HALF_LD;
 extern NGG_UINT const ONE_ULL;
 extern long double ONE_LD;
 extern NGG_UINT const TWO_ULL;

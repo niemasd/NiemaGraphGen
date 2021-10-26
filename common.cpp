@@ -3,7 +3,6 @@
 // initialize extern variables from common.h
 int RNG_SEED = chrono::system_clock::now().time_since_epoch().count();
 default_random_engine RNG(RNG_SEED);
-long double HALF_LD = (long double)0.5;
 NGG_UINT const ONE_ULL = (NGG_UINT)1;
 long double ONE_LD = (long double)1.;
 NGG_UINT const TWO_ULL = (NGG_UINT)2;
