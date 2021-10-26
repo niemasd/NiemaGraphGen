@@ -6,7 +6,7 @@ using namespace std;
 
 // NiemaGraphGen version
 #ifndef NGG_VERSION
-#define NGG_VERSION "1.0.4"
+#define NGG_VERSION "1.0.5"
 #endif
 
 // RNG seed environment variable
@@ -116,7 +116,7 @@ int main(int argc, char** argv) {
         #if   defined BA          // Barabasi-Albert graph
             + " <num_nodes> <num_edges_from_new>"
         #elif defined BARBELL     // barbell graph
-            + "<num_nodes_complete> <num_nodes_path>"
+            + " <num_nodes_complete> <num_nodes_path>"
         #elif defined COMPLETE    // complete graph
             + " <num_nodes>"
         #elif defined CYCLE       // cycle graph
