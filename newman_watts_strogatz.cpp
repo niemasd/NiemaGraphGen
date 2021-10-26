@@ -145,7 +145,6 @@ void generate_nws_graph(NGG_UINT const & N, NGG_UINT const & K, long double cons
         if(new_edge_int <= LAST_INDEX_FULL_RECTANGLE) {
             u = new_edge_int / N_MINUS_K_MINUS_1; // row in rectangle part of matrix
             tmp_col = new_edge_int % N_MINUS_K_MINUS_1; // column in rectangle part of matrix
-            v = K_OVER_2_PLUS_1 + u + tmp_col;
         }
         
         // otherwise, edge is in the bottom triangle part of matrix
