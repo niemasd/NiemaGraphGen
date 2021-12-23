@@ -30,6 +30,8 @@ Each graph generator is implemented as its own `ngg_*` executable. To view each 
 ngg_barabasi_albert -h # show the usage message for the Barabási–Albert generator
 ```
 
+Code examples for loading contact networks simulated by NGG can be found in the [NGG Wiki](https://github.com/niemasd/NiemaGraphGen/wiki).
+
 # Advanced Compilation Options
 The default compilation options (i.e., by downloading the NGG source code and running `make`) should be sufficient for most use-cases. However, NGG supports some advanced compilation options that may be of interest.
 
