@@ -68,4 +68,4 @@ OUTFLAG=-DOUTCOMPACT # compact format
 # Citing NiemaGraphGen
 If you use NiemaGraphGen in your work, please cite:
 
-> Moshiri N (2022). "NiemaGraphGen: A memory-efficient global-scale contact network simulation toolkit." [*arXiv*:2201.04625](https://arxiv.org/abs/2201.04625)
+> Moshiri N (2022). "NiemaGraphGen: A memory-efficient global-scale contact network simulation toolkit." *Gigabyte*. [doi:10.46471/gigabyte.37](https://doi.org/10.46471/gigabyte.37)
