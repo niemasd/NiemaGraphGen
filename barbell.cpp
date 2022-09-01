@@ -29,6 +29,10 @@ void generate_barbell_graph(NGG_UINT const & M1, NGG_UINT const & M2) {
     }
 
     // connect each complete graph to the path
-    writer.write_edge(0, TWO_M1);             // node 0  (first complete graph)  <---> node 2M1 (left side of path)
-    writer.write_edge(M1, NUM_NODES_MINUS_1); // node M1 (second complete graph) <---> node N-1 (right side of path)
+    if(M2 == 0) {
+        writer.write_edge(0, M1);                 // node 0 (first complete graph)   <---> node M1 (second complete graph)
+    } else {
+        writer.write_edge(0, TWO_M1);             // node 0  (first complete graph)  <---> node 2M1 (left side of path)
+        writer.write_edge(M1, NUM_NODES_MINUS_1); // node M1 (second complete graph) <---> node N-1 (right side of path)
+    }
 }

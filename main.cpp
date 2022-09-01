@@ -160,8 +160,8 @@ int main(int argc, char** argv) {
     #elif defined BARBELL     // barbell graph
         NGG_UINT const M1 = stoull(argv[1]);
         NGG_UINT const M2 = stoull(argv[2]);
-        if(M1 == 0 || M2 == 0) {
-            error("Number of nodes must be non-zero");
+        if(M1 == 0) {
+            error("Number of nodes in the complete graphs must be non-zero");
         }
     #elif defined COMPLETE    // complete graph
         NGG_UINT const N = stoull(argv[1]);
