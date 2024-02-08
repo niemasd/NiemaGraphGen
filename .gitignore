@@ -23,6 +23,8 @@ ngg_ring_lattice_debug
 *.txt.gz
 *.ngg
 *.ngg.gz
+*.tsv
+*.pdf
 
 # Prerequisites
 *.d
