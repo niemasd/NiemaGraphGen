@@ -18,6 +18,12 @@ ngg_path_debug
 ngg_ring_lattice
 ngg_ring_lattice_debug
 
+# output files
+*.txt
+*.txt.gz
+*.ngg
+*.ngg.gz
+
 # Prerequisites
 *.d
 
